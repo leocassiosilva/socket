@@ -14,12 +14,12 @@ import java.util.logging.Logger;
 public class Servidor {
 
     public static void main(String[] args) {
-        try (            ServerSocket servidor = new ServerSocket(999)){
+        try (ServerSocket servidor = new ServerSocket(999)) {
             System.out.println("Aguardando conexão");
 
             while (true) {
                 Socket conexao = servidor.accept();
-                Tratamento tratamento =  new Tratamento(conexao);
+                Tratamento tratamento = new Tratamento(conexao);
                 Thread thread = new Thread(tratamento);
                 thread.start();
             }
